@@ -31,15 +31,15 @@ export const authOptions: NextAuthOptions = {
     },
   }),
   session: { strategy: "jwt" },
-providers: [
-  TraktProvider({
-    clientId: process.env.TRAKT_CLIENT_ID as string,
-    clientSecret: process.env.TRAKT_CLIENT_SECRET as string,
-    checks: ["pkce"],
-    authorization: "https://auth.trakt.tv/oauth/authorize",
-    token: "https://auth.trakt.tv/oauth/token",
-  }),
-],
+  providers: [
+    TraktProvider({
+      clientId: process.env.TRAKT_CLIENT_ID as string,
+      clientSecret: process.env.TRAKT_CLIENT_SECRET as string,
+      checks: ["pkce"],
+      authorization: "https://auth.trakt.tv/oauth/authorize",
+      token: "https://auth.trakt.tv/oauth/token",
+    }),
+  ],
   secret: process.env.NEXTAUTH_SECRET as string,
   callbacks: {
     async signIn({ user, account, profile, email, credentials }) {
