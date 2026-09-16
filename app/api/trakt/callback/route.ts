@@ -43,7 +43,10 @@ export async function GET(request: Request) {
   } catch (error) {
     console.error(error);
     return NextResponse.json(
-      { error: error instanceof Error ? error.message : error, status: "error" },
+      {
+        error: error instanceof Error ? error.message : error,
+        status: "error",
+      },
       { status: 500 },
     );
   }
